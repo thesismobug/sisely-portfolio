@@ -1,0 +1,111 @@
+/* Add padding around the main content area */
+.pageContainer {
+  padding: 1rem 2rem; /* Adjust top/bottom and left/right padding */
+  max-width: 1200px; /* Add max-width to center content */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Style for each section containing a caption and a grid */
+.gridSection {
+  margin-bottom: 3rem; /* Space between sections */
+  display: flex;
+  flex-direction: column; /* Stack grid and caption vertically */
+  align-items: center; /* Center grid and caption horizontally */
+}
+
+/* Style for the grid within each section */
+.metalGrid {
+  display: grid;
+  gap: 10px; /* Reduce gap to 10px */
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+/* --- Specific Column Classes --- */
+.gridCols1 {
+  grid-template-columns: 1fr;
+  max-width: 200px; /* Reduce width for single column */
+}
+.gridCols2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 420px; /* Reduce width for 2 columns */
+}
+.gridCols3 {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 630px; /* Reduce width for 3 columns */
+}
+.gridCols4 {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 840px; /* Reduce width for 4 columns */
+}
+/* --- End Specific Column Classes --- */
+
+/* Style for the section captions */
+.sectionCaption {
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #000000;
+  text-align: center; /* Center caption text */
+  margin-top: 0.5rem; /* Add space after images */
+  margin-bottom: 0;
+}
+
+.gridItem {
+  width: 100%;
+  max-width: 100%; /* Take full width of grid cell */
+  display: flex;
+  justify-content: center;
+}
+
+.imageWrapper {
+  width: 100%; /* Take full width of grid item */
+  max-width: 200px; /* Control maximum size */
+  aspect-ratio: 1 / 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .metalGrid {
+    gap: 5px;
+  }
+  /* Override column counts for medium screens */
+  .gridCols4 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+  .gridCols3 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pageContainer {
+    padding: 1rem; /* Reduce padding on small screens */
+  }
+
+  /* Override ALL grid layouts to 1 column */
+  .gridCols1,
+  .gridCols2,
+  .gridCols3,
+  .gridCols4 {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    max-width: 280px; /* Narrower on small screens */
+  }
+
+  .gridItem {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .sectionCaption {
+    max-width: 280px; /* Match grid width */
+  }
+} 

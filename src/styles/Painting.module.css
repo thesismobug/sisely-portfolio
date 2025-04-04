@@ -1,0 +1,85 @@
+/* Add padding around the main content area */
+.pageContainer {
+  padding: 1rem 2rem; /* Adjust top/bottom and left/right padding as needed */
+}
+
+.paintingGrid {
+  display: grid;
+  /* Create 4 columns by default */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem; /* Adjust gap between grid items */
+  align-items: start; /* Align items to the top */
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center caption below image */
+  text-align: center;
+}
+
+/* Style for the last item to make it span columns */
+.gridItemLarge {
+  /* Make the 5th item span all 4 columns */
+  grid-column: 1 / -1;
+  /* Optionally constrain its max width if it gets too wide */
+  max-width: 60%; /* Example: limit to 60% of the grid width */
+  margin: 0 auto; /* Center it horizontally */
+}
+
+.imageWrapper {
+  width: 100%; /* Ensure wrapper takes full width of grid item */
+  margin-bottom: 0.5rem; /* Space between image and caption */
+  background-color: #f0f0f000; /* Optional: background while image loads */
+}
+
+/* Style for the image captions */
+.caption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .paintingGrid {
+    /* Switch to 2 columns on medium screens */
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* On medium screens, the large item spans 2 columns */
+  .gridItemLarge {
+    grid-column: 1 / -1; /* Still spans full width */
+    max-width: 80%; /* Adjust max width if needed */
+  }
+
+  .imageWrapper {
+    max-width: 90%; /* Make images slightly smaller than the column width */
+    margin-left: auto; /* Center the wrapper */
+    margin-right: auto; /* Center the wrapper */
+  }
+}
+
+@media (max-width: 640px) {
+  .pageContainer {
+    padding: 1rem; /* Reduce padding on small screens */
+  }
+
+  .paintingGrid {
+    /* Switch to 1 column on small screens */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* On small screens, the large item is just a normal item */
+  .gridItemLarge {
+    grid-column: auto; /* Reset span */
+    max-width: 100%; /* Allow full width */
+  }
+
+  .imageWrapper {
+    max-width: 85%; /* Make images even smaller relative to the column */
+    margin-left: auto; /* Center the wrapper */
+    margin-right: auto; /* Center the wrapper */
+  }
+} 

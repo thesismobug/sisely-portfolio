@@ -1,0 +1,50 @@
+/* Add padding around the main content area */
+.pageContainer {
+  padding: 1rem 2rem; /* Adjust top/bottom and left/right padding */
+  max-width: 1200px; /* Add max-width to center content */
+  margin: 0 auto; /* Center the container */
+}
+
+.clothingGrid {
+  display: grid;
+  /* Create 2 columns by default for a 2x2 grid */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem; /* Adjust gap between grid items */
+  align-items: start; /* Align items to the top */
+}
+
+.gridItem {
+  /* Optional: Add specific item styling if needed */
+  width: 100%;
+}
+
+.imageWrapper {
+  width: 100%; /* Ensure wrapper takes full width of grid item */
+  /* Optional: Add a background or aspect-ratio control if needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .clothingGrid {
+    /* Still 2 columns on medium screens, but maybe smaller gap */
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .pageContainer {
+    padding: 1rem; /* Reduce padding on small screens */
+  }
+
+  .clothingGrid {
+    /* Switch to 1 column on small screens */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .gridItem {
+     /* Center items when in single column */
+     max-width: 40%; /* Prevent image from being too wide */
+     margin: 0 auto;
+  }
+} 
