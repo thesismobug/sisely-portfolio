@@ -35,6 +35,7 @@
 
 /* Style for the image captions */
 .caption {
+  font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   color: #555;
   margin-top: 0.5rem;

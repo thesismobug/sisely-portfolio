@@ -31,12 +31,41 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   margin-top: 1rem;
+}
+
+.introSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.introText {
+  flex: 1;
+}
+
+.profileImageContainer {
+  flex-shrink: 0;
+  max-width: 300px;
+}
+
+.profileImage {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 .bio {
   margin-top: 1rem;
+}
+
+.bioHeading {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .main p {
@@ -141,6 +170,14 @@ a.secondary {
 @media (max-width: 768px) {
   .main {
     padding: 1rem;
+  }
+  
+  .introSection {
+    flex-direction: column;
+  }
+  
+  .profileImageContainer {
+    margin: 0 auto;
   }
 }
 
