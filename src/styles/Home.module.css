@@ -30,6 +30,12 @@
   gap: 32px;
 }
 
+.main p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
 .main ol {
   font-family: 'Inter', monospace;
   padding-left: 0;
