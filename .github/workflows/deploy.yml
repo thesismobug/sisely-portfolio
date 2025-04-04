@@ -63,8 +63,12 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      
-      # Build Next.js site
+      - name: Remove TypeScript index file
+        run: |
+          if [ -f "src/pages/index.tsx" ]; then
+            echo "Removing index.tsx to use index.js instead"
+            rm src/pages/index.tsx
+          fi
       - name: Build with Next.js
         env:
           GITHUB_ACTIONS: true
