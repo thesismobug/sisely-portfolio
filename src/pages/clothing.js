@@ -7,10 +7,10 @@ import styles from '../styles/Clothing.module.css'; // Import styles for this pa
 // Define the data for your clothing images
 // Assuming filenames 1.png, 2.png, etc. in public/images/clothing/
 const clothingItems = [
-  { id: 1, src: '/images/clothing/clothing1.png', alt: 'Clothing item 1 Alt Text' },
-  { id: 2, src: '/images/clothing/clothing2.png', alt: 'Clothing item 2 Alt Text' },
-  { id: 3, src: '/images/clothing/clothing3.png', alt: 'Clothing item 3 Alt Text' },
-  { id: 4, src: '/images/clothing/clothing4.png', alt: 'Clothing item 4 Alt Text' },
+  { id: 1, src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/clothing/clothing1.png`, alt: 'Clothing item 1 Alt Text' },
+  { id: 2, src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/clothing/clothing2.png`, alt: 'Clothing item 2 Alt Text' },
+  { id: 3, src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/clothing/clothing3.png`, alt: 'Clothing item 3 Alt Text' },
+  { id: 4, src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/clothing/clothing4.png`, alt: 'Clothing item 4 Alt Text' },
 ];
 
 const ClothingPage = () => {

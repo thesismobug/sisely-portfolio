@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className={styles.logoContainer}>
         <Link href="/">
           <Image
-            src="/SisSpiral.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/SisSpiral.png`}
             alt="Sisely Portfolio Logo"
             width={50}
             height={50}
