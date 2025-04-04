@@ -70,14 +70,19 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
-        # Set GITHUB_ACTIONS env var to true to trigger basePath logic in next.config.js
         env:
           GITHUB_ACTIONS: true
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        # No separate export step needed if `output: 'export'` is in next.config.js
-        # The build command will automatically export to 'out'
-        # - name: Export static site
-        #   run: ${{ steps.detect-package-manager.outputs.runner }} next export
+      
+      # debug the output directory
+      - name: List output directory
+        run: ls -la
+      
+      # create the directory if it doesn't exist
+      - name: Create output directory if needed
+        run: mkdir -p out
+        
+      # Then continue with the upload step
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
