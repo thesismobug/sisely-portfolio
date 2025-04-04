@@ -10,7 +10,7 @@ export default function Document() {
         
         <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/SisSpiral.png`} />
         <link rel="apple-touch-icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/SisSpiral.png`} />
-        <link rel="shortcut icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/favicon.ico`} />
+        <link rel="shortcut icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH}/favicon2.ico`} />
     </Head>
       <body>
         <Main />
