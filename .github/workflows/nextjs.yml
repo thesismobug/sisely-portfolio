@@ -52,37 +52,45 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (required for static export).
-          # See https://nextjs.org/docs/pages/api-reference/next-config-js/basePath
-          # See https://nextjs.org/docs/pages/api-reference/next-config-js/images#unoptimized
           static_site_generator: next
       - name: Restore cache
         uses: actions/cache@v3
         with:
           path: |
             .next/cache
-          # Generate a new cache whenever packages or source files change.
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      
+      # Build Next.js site
       - name: Build with Next.js
         env:
           GITHUB_ACTIONS: true
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       
-      # debug the output directory
-      - name: List output directory
-        run: ls -la
+      # Debug to see what directories were created
+      - name: Debug directory structure
+        run: |
+          echo "Current directory contents:"
+          ls -la
+          echo "Out directory contents (if exists):"
+          ls -la out || echo "out directory not found"
       
-      # create the directory if it doesn't exist
-      - name: Create output directory if needed
-        run: mkdir -p out
-        
-      # Then continue with the upload step
+      # Add .nojekyll file to prevent GitHub Pages from ignoring files that begin with an underscore
+      - name: Add .nojekyll file
+        run: touch out/.nojekyll
+      
+      # Copy 404.html to out directory
+      - name: Copy 404.html
+        run: cp public/404.html out/404.html
+      
+      # Create a test file to verify deployment
+      - name: Create test file
+        run: echo "<html><body><h1>Test Page</h1></body></html>" > out/test.html
+      
+      # Upload artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
