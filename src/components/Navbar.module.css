@@ -27,6 +27,7 @@
 }
 
 .navLinks li a {
+    font-family: 'Inter', sans-serif;
     font-size: 1.5rem; /* Match image font size */
     font-weight: bold; /* Match image font weight */
     color: #000; /* Match image font color */

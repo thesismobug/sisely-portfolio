@@ -6,11 +6,11 @@ import styles from '../styles/Painting.module.css'; // Import styles for this pa
 
 
 const paintings = [
-  { id: 1, src: '/images/paintings/1.png', alt: 'Lucien Freud mastercopy', caption: '16 x 20 in. - oil on canvas' },
-  { id: 2, src: '/images/paintings/2.png', alt: 'Salman Toor mastercopy', caption: '16 x 20 in. - oil on canvas' },
-  { id: 3, src: '/images/paintings/3.png', alt: 'Avery portrait', caption: '16 x 20 in. - oil on canvas' },
-  { id: 4, src: '/images/paintings/4.png', alt: 'Dominic & Doodles portrait', caption: '8 x 10 in. - oil on canvas' },
-  { id: 5, src: '/images/paintings/5.png', alt: 'Large red self-portrait', caption: '40 x 60 in. - oil on canvas' },
+  { id: 1, src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/paintings/1.png`, alt: 'Lucien Freud mastercopy', caption: '16 x 20 in. - oil on canvas' },
+  { id: 2, src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/paintings/2.png`, alt: 'Salman Toor mastercopy', caption: '16 x 20 in. - oil on canvas' },
+  { id: 3, src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/paintings/3.png`, alt: 'Avery portrait', caption: '16 x 20 in. - oil on canvas' },
+  { id: 4, src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/paintings/4.png`, alt: 'Dominic & Doodles portrait', caption: '8 x 10 in. - oil on canvas' },
+  { id: 5, src: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/paintings/5.png`, alt: 'Large red self-portrait', caption: '40 x 60 in. - oil on canvas' },
 ];
 
 const PaintingPage = () => {
