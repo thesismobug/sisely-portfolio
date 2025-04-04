@@ -167,8 +167,3 @@ a.secondary {
   }
 }
 
-.mainContent {
-  padding-left: 1rem; /* Adjust value as needed (1rem is often equivalent to Tailwind's size 4) */
-  /* You could add other styles here too */
-  /* margin-right: 2.5rem; */ /* Equivalent to mr-10 if needed */
-}
