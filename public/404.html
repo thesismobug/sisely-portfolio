@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // Get the current path
+    var path = window.location.pathname;
+    // Remove any trailing slash
+    path = path.replace(/\/$/, "");
+    // If we're on GitHub Pages, handle the repo name in the path
+    var repoOwner = "thesismobug"; // Update with the actual owner
+    var repoName = "sisely-portfolio";
+    var fullRepoPath = "/" + repoName;
+    
+    if (path.indexOf(fullRepoPath) === 0) {
+      path = path.replace(fullRepoPath, "");
+    }
+    
+    // Redirect to the homepage if we're at the root
+    if (path === "" || path === "/") {
+      window.location.href = window.location.origin + fullRepoPath + "/";
+    } else {
+      // Otherwise redirect to the correct page with trailing slash
+      window.location.href = window.location.origin + fullRepoPath + path + "/";
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html> 
