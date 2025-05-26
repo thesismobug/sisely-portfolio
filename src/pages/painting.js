@@ -125,7 +125,7 @@ const PaintingPage = () => {
 
         {/* Fifth row - large painting */}
         <div className={styles.paintingGrid}>
-          {fifthRowRow.map((painting) => (
+          {fifthRow.map((painting) => (
             <div
               key={painting.id}
               className={`${styles.gridItem} ${styles.gridItemLarge}`}
